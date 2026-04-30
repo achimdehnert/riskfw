@@ -3,6 +3,10 @@
 Pure-Python safety calculation library for explosion protection.
 No Django, no HTTP, no external dependencies — stdlib only.
 
+[![PyPI](https://img.shields.io/pypi/v/riskfw)](https://pypi.org/project/riskfw/)
+[![Python](https://img.shields.io/pypi/pyversions/riskfw)](https://pypi.org/project/riskfw/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Standards
 
 | Module | Standard |
@@ -55,6 +59,10 @@ print(props.lower_explosion_limit)  # 3.1
 - `MAJOR`: Norm edition changes affecting calculation results
 - `MINOR`: New norm support added
 - `PATCH`: Bugfix or new substances without normative impact
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
