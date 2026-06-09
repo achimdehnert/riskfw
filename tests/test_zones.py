@@ -35,9 +35,10 @@ def test_should_return_zone_0_with_no_ventilation():
 
 
 def test_should_return_zone_1_with_medium_ventilation():
+    # ZONE_1 requires dilution_factor in [100, 1000): vent/(release) = 20/0.1 = 200.
     result = calculate_zone_extent(
         release_rate_kg_s=0.1,
-        ventilation_rate_m3_s=0.5,
+        ventilation_rate_m3_s=20.0,
         substance_name="ethanol",
         release_type="jet",
     )
@@ -88,9 +89,12 @@ def test_should_raise_for_unknown_release_type():
 
 
 def test_should_warn_when_zone_exceeds_room_volume():
+    # The "exceeds" warning needs a computed zone_volume > room: with ventilation
+    # the volume is derived from the release (large), not capped to room_volume as
+    # in the no-ventilation branch (which sets zone_volume = room_volume).
     result = calculate_zone_extent(
         release_rate_kg_s=10.0,
-        ventilation_rate_m3_s=0.0,
+        ventilation_rate_m3_s=1.0,
         room_volume_m3=5.0,
     )
     assert any("exceeds" in w for w in result.warnings)
