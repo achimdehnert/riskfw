@@ -29,14 +29,15 @@ def test_should_create_zone_calculation_report():
 def test_should_detect_unmitigated_high_risk():
     assessments = [
         IgnitionAssessment(
-            source_id="S04", source_name="Elektrische Anlagen",
-            is_present=True, is_effective=True,
-            risk_level=IgnitionRisk.HIGH, mitigation="",
+            source_id="S04",
+            source_name="Elektrische Anlagen",
+            is_present=True,
+            is_effective=True,
+            risk_level=IgnitionRisk.HIGH,
+            mitigation="",
         ),
     ]
-    report = IgnitionAssessmentReport(
-        project_name="Test", zone_type="1", assessments=assessments
-    )
+    report = IgnitionAssessmentReport(project_name="Test", zone_type="1", assessments=assessments)
     assert report.has_unmitigated_high_risk is True
     assert len(report.high_risk_sources) == 1
 
@@ -44,14 +45,15 @@ def test_should_detect_unmitigated_high_risk():
 def test_should_not_flag_mitigated_risk():
     assessments = [
         IgnitionAssessment(
-            source_id="S04", source_name="Elektrische Anlagen",
-            is_present=True, is_effective=True,
-            risk_level=IgnitionRisk.LOW, mitigation="Ex-Schutz installiert",
+            source_id="S04",
+            source_name="Elektrische Anlagen",
+            is_present=True,
+            is_effective=True,
+            risk_level=IgnitionRisk.LOW,
+            mitigation="Ex-Schutz installiert",
         ),
     ]
-    report = IgnitionAssessmentReport(
-        project_name="Test", zone_type="1", assessments=assessments
-    )
+    report = IgnitionAssessmentReport(project_name="Test", zone_type="1", assessments=assessments)
     assert report.has_unmitigated_high_risk is False
 
 
