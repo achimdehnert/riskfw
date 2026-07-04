@@ -77,7 +77,10 @@ class IgnitionSourceMatrix:
 
         logger.debug(
             "[Ignition] source=%s present=%s effective=%s risk=%s",
-            source_id, is_present, is_effective, risk_level,
+            source_id,
+            is_present,
+            is_effective,
+            risk_level,
         )
 
         return IgnitionAssessment(
