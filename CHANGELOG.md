@@ -15,3 +15,5 @@
 ### Substances (GESTIS, Stand 2026-03-01, Prüfung fällig 2027-03-01)
 - Aceton, Ethanol, Methanol, Toluol, Xylol, Benzin, Diesel
 - Wasserstoff, Methan, Propan, Isopropanol, Butanol, Ethylacetat
+
+<!-- wave3-preflight: ci/gate PR-head verify, platform#987 Task A -->
